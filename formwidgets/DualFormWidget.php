@@ -136,7 +136,7 @@ class DualFormWidget extends FormWidgetBase
 
         $formConfig = $this->makeConfig($wrappedConfig);
         $formConfig->model = $this->model;
-        $formConfig->data = [$name => $value];
+        $formConfig->data = [$this->formField->fieldName => $value];
         $formConfig->alias = $this->alias.'_'.'Form';
         $formConfig->arrayName = $this->getId($name);
 
