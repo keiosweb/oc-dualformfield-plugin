@@ -39,6 +39,8 @@ class DualFormWidget extends FormWidgetBase
     public function init()
     {
         $this->jsonable = $this->getConfig('jsonable', false);
+
+        $this->prepareVars();
     }
 
     /**
@@ -46,8 +48,6 @@ class DualFormWidget extends FormWidgetBase
      */
     public function render()
     {
-        $this->prepareVars();
-
         return $this->makePartial('widget');
     }
 
@@ -96,11 +96,11 @@ class DualFormWidget extends FormWidgetBase
 
         switch ($side) {
             case self::LEFT:
-                $value = array_get(post($this->getId(self::LEFT)), self::LEFT, null);
+                $value = array_get(post($this->getId(self::LEFT)), $this->formField->getName(), null);
                 $sideToStore = self::LEFT;
                 break;
             case self::RIGHT:
-                $value = array_get(post($this->getId(self::RIGHT)), self::RIGHT, null);
+                $value = array_get(post($this->getId(self::RIGHT)), $this->formField->getName(), null);
                 $sideToStore = self::RIGHT;
                 break;
             default:
@@ -132,7 +132,7 @@ class DualFormWidget extends FormWidgetBase
             $value = $loadValue;
         }
 
-        $wrappedConfig = ['fields' => [$name => $fieldConfig]];
+        $wrappedConfig = ['fields' => [$this->formField->fieldName => $fieldConfig]];
 
         $formConfig = $this->makeConfig($wrappedConfig);
         $formConfig->model = $this->model;
