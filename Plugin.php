@@ -1,5 +1,6 @@
 <?php namespace Keios\DualFormWidget;
 
+use Keios\DualFormWidget\FormWidgets\DualFormWidget;
 use System\Classes\PluginBase;
 
 /**
@@ -23,4 +24,10 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            DualFormWidget::class => 'dual'
+        ];
+    }
 }

@@ -1,0 +1,27 @@
+<div data-control="dualformwidget"
+     data-form-option="<?= $this->getId('form-option') ?>"
+     data-left-id="<?= $this->getId('LEFT') ?>"
+     data-right-id="<?= $this->getId('RIGHT') ?>"
+     data-selected="<?= $selected ?>"
+     class="field-dualformwidget">
+    <div class="dualformwidget-selector radio-group">
+        <input id="leftOption" class="radio-group-option" type="radio" value="left" name="<?= $this->getId('form-option') ?>" <?php if ($selected == 'left'): ?> checked="checked" <?php endif; ?>>
+        <label class="radio-group-label" for="leftOption">
+            <?= $leftLabel ?>
+        </label>
+        <input id="rightOption" class="radio-group-option" type="radio" value="right" name="<?= $this->getId('form-option') ?>" <?php if ($selected == 'right'): ?> checked="checked" <?php endif; ?>>
+        <label class="radio-group-label" for="rightOption">
+            <?= $rightLabel ?>
+        </label>
+    </div>
+    <div class="layout" id="<?= $this->getId('LEFT') ?>">
+        <?= $left->render([
+            'useContainer' => false
+        ]) ?>
+    </div>
+    <div class="layout" id="<?= $this->getId('RIGHT') ?>">
+        <?= $right->render([
+            'useContainer' => false
+        ]) ?>
+    </div>
+</div>
