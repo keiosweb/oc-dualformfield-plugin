@@ -96,11 +96,11 @@ class DualFormWidget extends FormWidgetBase
 
         switch ($side) {
             case self::LEFT:
-                $value = array_get(post($this->getId(self::LEFT)), $this->formField->getName(), null);
+                $value = array_get(post($this->getId(self::LEFT)), $this->formField->fieldName, null);
                 $sideToStore = self::LEFT;
                 break;
             case self::RIGHT:
-                $value = array_get(post($this->getId(self::RIGHT)), $this->formField->getName(), null);
+                $value = array_get(post($this->getId(self::RIGHT)), $this->formField->fieldName, null);
                 $sideToStore = self::RIGHT;
                 break;
             default:
