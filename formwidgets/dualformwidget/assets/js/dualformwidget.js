@@ -4,20 +4,17 @@
         var self = this
         this.options = options
         this.$el = $(element)
-        //console.log(this.$el, options)
 
         this.$left = this.$el.find('#' + options.leftId)
         this.$right = this.$el.find('#' + options.rightId)
 
-
         var formOptionName = options.formOption
 
-        console.log(this.$el.find('input[name="' + formOptionName + '"]'))
-
         this.$el.find('input[name="' + formOptionName + '"]').change(function () {
-            console.log($(this))
             self.showFormOption($(this).val())
         })
+
+        this.initialSide = options.selected
 
         this.showFormOption(options.selected)
     }
@@ -25,18 +22,24 @@
     DualFormWidget.prototype.showFormOption = function (side) {
         switch (side) {
             case 'left':
+                this.initialSide !== side ? this.purgeSideInput(side) : null
                 this.$left.show()
                 this.$left.addClass('dualformwidget-form-selected')
                 this.$right.hide()
                 this.$right.removeClass('dualformwidget-form-selected')
                 break;
             case 'right':
+                this.initialSide !== side ? this.purgeSideInput(side) : null
                 this.$right.show()
                 this.$right.addClass('dualformwidget-form-selected')
                 this.$left.hide()
                 this.$left.removeClass('dualformwidget-form-selected')
                 break;
         }
+    }
+
+    DualFormWidget.prototype.purgeSideInput = function (side) {
+        this['$' + side].find('input').val('')
     }
 
     DualFormWidget.DEFAULTS = {}
