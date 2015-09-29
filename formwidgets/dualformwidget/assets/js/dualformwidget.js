@@ -4,13 +4,18 @@
         var self = this
         this.options = options
         this.$el = $(element)
+        //console.log(this.$el, options)
 
         this.$left = this.$el.find('#' + options.leftId)
         this.$right = this.$el.find('#' + options.rightId)
 
+
         var formOptionName = options.formOption
 
+        console.log(this.$el.find('input[name="' + formOptionName + '"]'))
+
         this.$el.find('input[name="' + formOptionName + '"]').change(function () {
+            console.log($(this))
             self.showFormOption($(this).val())
         })
 
