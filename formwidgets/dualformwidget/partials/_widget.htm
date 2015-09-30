@@ -7,11 +7,11 @@
     <div class="dualformwidget-selector radio-group">
         <input id="<?= $this->getId('leftOption') ?>" class="radio-group-option" type="radio" value="left" name="<?= $this->getId('form-option') ?>" <?php if ($selected == 'left'): ?> checked="checked" <?php endif; ?>>
         <label class="radio-group-label" for="<?= $this->getId('leftOption') ?>">
-            <?= $leftLabel ?>
+            <?= e(trans($leftLabel)) ?>
         </label>
         <input id="<?= $this->getId('rightOption') ?>" class="radio-group-option" type="radio" value="right" name="<?= $this->getId('form-option') ?>" <?php if ($selected == 'right'): ?> checked="checked" <?php endif; ?>>
         <label class="radio-group-label" for="<?= $this->getId('rightOption') ?>">
-            <?= $rightLabel ?>
+            <?= e(trans($rightLabel)) ?>
         </label>
     </div>
     <div class="layout" id="<?= $this->getId('LEFT') ?>">
