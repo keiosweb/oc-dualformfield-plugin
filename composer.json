@@ -1,0 +1,11 @@
+{
+    "name": "keios/dualformwidget",
+    "description": "Dual FormWidget for OctoberCMS",
+    "authors": [
+        {
+            "name": "Łukasz Biały",
+            "email": "lukasz@keios.eu"
+        }
+    ],
+    "require": {}
+}
